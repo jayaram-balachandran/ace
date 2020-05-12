@@ -21,6 +21,7 @@ module.exports = (app) => {
       .then((room) => {
         res.json(room);
         console.log("playerstatus:", room);
+        console.log("length:", room.playerOne.length);
       })
       .catch((err) => next(err));
   });
@@ -54,6 +55,8 @@ module.exports = (app) => {
         room.playerOne = playerOne;
         room.playerTwo = playerTwo;
         console.log("finalroom:", room);
+        console.log("length:", room.playerOne.length);
+
         room
           .save()
           .then(() => res.json(room))

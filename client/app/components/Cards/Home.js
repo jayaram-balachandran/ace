@@ -59,15 +59,16 @@ export default class Home extends Component {
       .then((res) => res.json())
       .then((roomDetail) => {
         // console.log("playerStatus:", roomDetail);
-        if ((roomDetail.playerOne.length = 26)) {
+        console.log("length:", roomDetail.playerOne.length);
+
+        if (roomDetail.playerOne.length === 26) {
           console.log("clear interval");
           clearInterval(set);
-
-          this.setState({
-            gameOn: true,
-            player: roomDetail.playerOne,
-          });
         }
+        this.setState({
+          gameOn: true,
+          player: roomDetail.playerOne,
+        });
       });
   };
 
